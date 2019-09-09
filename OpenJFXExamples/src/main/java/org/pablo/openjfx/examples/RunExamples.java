@@ -33,6 +33,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.openjfx.examples.containers.AccordionExample;
 import org.pablo.openjfx.examples.containers.HBoxExample;
+import org.pablo.openjfx.examples.containers.SplitPaneExample;
 import org.pablo.openjfx.examples.containers.TitledPaneExample;
 import org.pablo.openjfx.examples.containers.VBoxExample;
 
@@ -43,7 +44,7 @@ public class RunExamples extends Application {
     
     private List<ExampleBase> getListExamples()
     {
-        return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample());
+        return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample(), new SplitPaneExample());
     }
     
     @Override
