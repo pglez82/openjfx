@@ -27,12 +27,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.openjfx.examples.containers.AccordionExample;
+import org.pablo.openjfx.examples.containers.FlowPaneExample;
 import org.pablo.openjfx.examples.containers.HBoxExample;
 import org.pablo.openjfx.examples.containers.ScrollPaneExample;
 import org.pablo.openjfx.examples.containers.SplitPaneExample;
@@ -49,7 +49,7 @@ public class RunExamples extends Application {
     private List<ExampleBase> getListExamples()
     {
         return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample(), new SplitPaneExample(),
-                new TabPaneExample(),new ScrollPaneExample());
+                new TabPaneExample(),new ScrollPaneExample(),new FlowPaneExample());
     }
     
     @Override
@@ -84,6 +84,7 @@ public class RunExamples extends Application {
         //Set up the Scene and show it
         Scene scene = new Scene(vbox,400,400);
         stage.setScene(scene);
+        stage.setTitle("JavaFX examples");
         stage.show();
     }
     
