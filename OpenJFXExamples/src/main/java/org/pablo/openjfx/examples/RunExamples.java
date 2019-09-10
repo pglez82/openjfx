@@ -27,10 +27,14 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.openjfx.examples.containers.AccordionExample;
 import org.pablo.openjfx.examples.containers.HBoxExample;
+import org.pablo.openjfx.examples.containers.ScrollPaneExample;
 import org.pablo.openjfx.examples.containers.SplitPaneExample;
 import org.pablo.openjfx.examples.containers.TabPaneExample;
 import org.pablo.openjfx.examples.containers.TitledPaneExample;
@@ -40,17 +44,18 @@ import org.pablo.openjfx.examples.containers.VBoxExample;
  * JavaFX App
  */
 public class RunExamples extends Application {
+    private ListView listView;
     
     private List<ExampleBase> getListExamples()
     {
         return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample(), new SplitPaneExample(),
-                new TabPaneExample());
+                new TabPaneExample(),new ScrollPaneExample());
     }
     
     @Override
     public void start(Stage stage) {
         //Load all the classes in the listview
-        ListView listView = new ListView();
+        listView = new ListView();
         for (ExampleBase example : getListExamples())
             listView.getItems().add(example);
 
@@ -59,9 +64,15 @@ public class RunExamples extends Application {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ExampleBase exampleBase = (ExampleBase)listView.getSelectionModel().getSelectedItem();
-                if (exampleBase!=null)
-                    exampleBase.show();
+               loadSelectedExample();
+            }
+        });
+        
+        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
+                    loadSelectedExample();
             }
         });
         
@@ -74,6 +85,13 @@ public class RunExamples extends Application {
         Scene scene = new Scene(vbox,400,400);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    private void loadSelectedExample()
+    {
+        ExampleBase exampleBase = (ExampleBase)listView.getSelectionModel().getSelectedItem();
+        if (exampleBase!=null)
+            exampleBase.show(); 
     }
 
     public static void main(String[] args) {
