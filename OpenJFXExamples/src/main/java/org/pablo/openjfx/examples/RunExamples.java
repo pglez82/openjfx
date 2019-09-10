@@ -26,7 +26,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
@@ -34,6 +33,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.openjfx.examples.basiccomponents.ButtonExample;
+import org.pablo.openjfx.examples.basiccomponents.DatePickerExample;
 import org.pablo.openjfx.examples.containers.AccordionExample;
 import org.pablo.openjfx.examples.containers.FlowPaneExample;
 import org.pablo.openjfx.examples.containers.GridPaneExample;
@@ -58,7 +58,7 @@ public class RunExamples extends Application {
     
     private List<ExampleBase> getBasicComponentsExamples()
     {
-        return Arrays.asList(new ButtonExample());
+        return Arrays.asList(new ButtonExample(),new DatePickerExample());
     }
     
     @Override
