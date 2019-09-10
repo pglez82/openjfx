@@ -27,10 +27,13 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.pablo.openjfx.examples.basiccomponents.ButtonExample;
 import org.pablo.openjfx.examples.containers.AccordionExample;
 import org.pablo.openjfx.examples.containers.FlowPaneExample;
 import org.pablo.openjfx.examples.containers.GridPaneExample;
@@ -45,20 +48,35 @@ import org.pablo.openjfx.examples.containers.VBoxExample;
  * JavaFX App
  */
 public class RunExamples extends Application {
-    private ListView listView;
+    private TreeView treeView;
     
-    private List<ExampleBase> getListExamples()
+    private List<ExampleBase> getContainerExamples()
     {
         return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample(), new SplitPaneExample(),
                 new TabPaneExample(),new ScrollPaneExample(),new FlowPaneExample(),new GridPaneExample());
     }
     
+    private List<ExampleBase> getBasicComponentsExamples()
+    {
+        return Arrays.asList(new ButtonExample());
+    }
+    
     @Override
     public void start(Stage stage) {
         //Load all the classes in the listview
-        listView = new ListView();
-        for (ExampleBase example : getListExamples())
-            listView.getItems().add(example);
+        treeView = new TreeView();
+        TreeItem treeItem = new TreeItem("Ejemplos");
+        treeItem.setExpanded(true);
+        TreeItem treeItemContainers = new TreeItem("Contenedores");
+        treeItemContainers.setExpanded(true);
+        for (ExampleBase example : getContainerExamples())
+            treeItemContainers.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemContainers);
+        TreeItem treeItemBasicComps = new TreeItem("Componentes básicos");
+        treeItemBasicComps.setExpanded(true);
+        for (ExampleBase example : getBasicComponentsExamples())
+            treeItemBasicComps.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemBasicComps);
 
         //Show the button an its action
         Button button = new Button("Cargar");
@@ -69,7 +87,7 @@ public class RunExamples extends Application {
             }
         });
         
-        listView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        treeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
@@ -79,7 +97,8 @@ public class RunExamples extends Application {
         
         //Add elements to the container
         VBox vbox = new VBox();
-        vbox.getChildren().add(listView);
+        treeView.setRoot(treeItem);
+        vbox.getChildren().add(treeView);
         vbox.getChildren().add(button);
         
         //Set up the Scene and show it
@@ -91,7 +110,7 @@ public class RunExamples extends Application {
     
     private void loadSelectedExample()
     {
-        ExampleBase exampleBase = (ExampleBase)listView.getSelectionModel().getSelectedItem();
+        ExampleBase exampleBase = (ExampleBase)((TreeItem)treeView.getSelectionModel().getSelectedItem()).getValue();
         if (exampleBase!=null)
             exampleBase.show(); 
     }
