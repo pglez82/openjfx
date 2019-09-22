@@ -30,6 +30,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.ButtonExample;
@@ -45,7 +46,7 @@ public class RunExamples extends Application {
     private List<ExampleBase> getContainerExamples()
     {
         return Arrays.asList(new HBoxExample(),new VBoxExample(), new TitledPaneExample(), new AccordionExample(), new SplitPaneExample(),
-                new TabPaneExample(),new ScrollPaneExample(),new FlowPaneExample(),new GridPaneExample());
+                new TabPaneExample(),new ScrollPaneExample(),new FlowPaneExample(),new GridPaneExample(),new AnchorPaneExample());
     }
     
     private List<ExampleBase> getBasicComponentsExamples()
