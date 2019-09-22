@@ -30,10 +30,10 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.ButtonExample;
+import org.pablo.javafx.examples.basiccomponents.ComboBoxExample;
 import org.pablo.javafx.examples.basiccomponents.DatePickerExample;
 import org.pablo.javafx.examples.containers.*;
 
@@ -51,7 +51,7 @@ public class RunExamples extends Application {
     
     private List<ExampleBase> getBasicComponentsExamples()
     {
-        return Arrays.asList(new ButtonExample(),new DatePickerExample());
+        return Arrays.asList(new ButtonExample(),new DatePickerExample(),new ComboBoxExample());
     }
     
     @Override
