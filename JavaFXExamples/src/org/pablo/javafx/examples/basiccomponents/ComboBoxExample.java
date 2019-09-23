@@ -42,6 +42,7 @@ public class ComboBoxExample extends ExampleBase {
         listaPersonas.add(new Persona("María","Suárez"));
 
         ComboBox comboBox = new ComboBox<Persona>(listaPersonas);
+        comboBox.setPromptText("Selecciona una persona");
         Label label = new Label("Selecciona una persona en el combo");
 
         comboBox.setOnAction(new EventHandler<ActionEvent>() {
