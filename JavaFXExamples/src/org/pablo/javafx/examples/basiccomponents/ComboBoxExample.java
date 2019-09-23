@@ -11,26 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.ExampleBase;
+import org.pablo.javafx.examples.basiccomponents.dto.Persona;
 
 /**
  * JavaFX App
  */
 public class ComboBoxExample extends ExampleBase {
-    private class Persona
-    {
-        private String nombre;
-        private String apellidos;
 
-        public Persona(String nombre, String apellidos) {
-            this.nombre = nombre;
-            this.apellidos = apellidos;
-        }
-
-        @Override
-        public String toString() {
-            return nombre + " " + apellidos;
-        }
-    }
 
     @Override
     public void show() {

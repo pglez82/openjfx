@@ -49,7 +49,7 @@ public class RunExamples extends Application {
     
     private List<ExampleBase> getBasicComponentsExamples()
     {
-        return Arrays.asList(new ButtonExample(),new DatePickerExample(),new ComboBoxExample(), new TextFieldExample(),new ImageViewExample());
+        return Arrays.asList(new ButtonExample(),new DatePickerExample(),new ComboBoxExample(), new TextFieldExample(),new ImageViewExample(),new TableViewExample());
     }
     
     @Override
