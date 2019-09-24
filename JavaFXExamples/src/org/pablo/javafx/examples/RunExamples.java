@@ -30,6 +30,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
@@ -53,7 +54,7 @@ public class RunExamples extends Application {
     
     private List<ExampleBase> getBasicComponentsExamples()
     {
-        return Arrays.asList(new ButtonExample(),new DatePickerExample(),new CheckBoxExample(),new ComboBoxExample(), new TextFieldExample(),new ImageViewExample(),new TableViewExample(),new RadioButtonExample());
+        return Arrays.asList(new ButtonExample(),new DatePickerExample(),new CheckBoxExample(),new ComboBoxExample(), new TextFieldExample(),new ImageViewExample(),new TableViewExample(),new RadioButtonExample(),new MenuExample());
     }
 
     private List<ExampleBase> getWindowExamples()
@@ -87,13 +88,13 @@ public class RunExamples extends Application {
         treeItem.getChildren().add(treeItemWindows);
 
         //Show the button an its action
-        Button button = new Button("Cargar");
+       /* Button button = new Button("Cargar");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                loadSelectedExample();
             }
-        });
+        });*/
         
         treeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -104,13 +105,19 @@ public class RunExamples extends Application {
         });
         
         //Add elements to the container
-        VBox vbox = new VBox();
+        AnchorPane anchorPane = new AnchorPane();
         treeView.setRoot(treeItem);
-        vbox.getChildren().add(treeView);
-        vbox.getChildren().add(button);
+        anchorPane.getChildren().add(treeView);
+        //anchorPane.getChildren().add(button);
+        AnchorPane.setRightAnchor(treeView,10d);
+        AnchorPane.setLeftAnchor(treeView,10d);
+        AnchorPane.setTopAnchor(treeView,10d);
+        AnchorPane.setBottomAnchor(treeView,10d);
+        //AnchorPane.setBottomAnchor(button,10d);
+        //AnchorPane.setLeftAnchor(button,10d);
         
         //Set up the Scene and show it
-        Scene scene = new Scene(vbox,400,400);
+        Scene scene = new Scene(anchorPane,800,600);
         stage.setScene(scene);
         stage.setTitle("JavaFX examples");
         stage.show();
