@@ -34,6 +34,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
 import org.pablo.javafx.examples.containers.*;
+import org.pablo.javafx.examples.windows.ConfirmationAlertDialogExample;
+import org.pablo.javafx.examples.windows.ErrorAlertDialogExample;
+import org.pablo.javafx.examples.windows.InfoAlertDialogExample;
 
 /**
  * JavaFX App
@@ -51,6 +54,11 @@ public class RunExamples extends Application {
     {
         return Arrays.asList(new ButtonExample(),new DatePickerExample(),new CheckBoxExample(),new ComboBoxExample(), new TextFieldExample(),new ImageViewExample(),new TableViewExample(),new RadioButtonExample());
     }
+
+    private List<ExampleBase> getWindowExamples()
+    {
+        return Arrays.asList(new InfoAlertDialogExample(),new ErrorAlertDialogExample(),new ConfirmationAlertDialogExample());
+    }
     
     @Override
     public void start(Stage stage) {
@@ -58,16 +66,24 @@ public class RunExamples extends Application {
         treeView = new TreeView();
         TreeItem treeItem = new TreeItem("Ejemplos");
         treeItem.setExpanded(true);
+
         TreeItem treeItemContainers = new TreeItem("Contenedores");
         treeItemContainers.setExpanded(true);
         for (ExampleBase example : getContainerExamples())
             treeItemContainers.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemContainers);
+
         TreeItem treeItemBasicComps = new TreeItem("Componentes básicos");
         treeItemBasicComps.setExpanded(true);
         for (ExampleBase example : getBasicComponentsExamples())
             treeItemBasicComps.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemBasicComps);
+
+        TreeItem treeItemWindows = new TreeItem("Ventanas y diálogos");
+        treeItemWindows.setExpanded(true);
+        for (ExampleBase example : getWindowExamples())
+            treeItemWindows.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemWindows);
 
         //Show the button an its action
         Button button = new Button("Cargar");
