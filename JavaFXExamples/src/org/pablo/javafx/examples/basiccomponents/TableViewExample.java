@@ -35,8 +35,7 @@ public class TableViewExample extends ExampleBase {
         TableColumn<String, Persona> column2 = new TableColumn<>("Apellidos");
         column2.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
 
-        tableView.getColumns().add(column1);
-        tableView.getColumns().add(column2);
+        tableView.getColumns().addAll(column1,column2);
 
         Scene scene = new Scene(new VBox(tableView),200,100);
         stage.setScene(scene);
