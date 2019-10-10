@@ -1,4 +1,4 @@
-package es.pablo;
+package es.pablo.views;
 
 import es.pablo.logica.Logica;
 import es.pablo.models.Persona;
@@ -12,8 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.security.DigestException;
 
 public class PantallaPrincipal extends Application {
 

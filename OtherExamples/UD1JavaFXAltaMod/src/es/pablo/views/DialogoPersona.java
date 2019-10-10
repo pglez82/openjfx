@@ -1,4 +1,4 @@
-package es.pablo;
+package es.pablo.views;
 
 import es.pablo.logica.Logica;
 import es.pablo.models.Persona;
