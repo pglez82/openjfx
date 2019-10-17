@@ -26,9 +26,29 @@ public class MainWindowController implements Initializable {
     private TableView<Persona> tableViewPersonas;
 
     @FXML
+    void modificarPersona(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DialogoPersona.fxml"));
+            Parent root = fxmlLoader.load();
+            DialogoPersonaController controller = fxmlLoader.getController();
+            Persona persona = tableViewPersonas.getSelectionModel().getSelectedItem();
+            controller.setPersonaModificar(persona,tableViewPersonas.getSelectionModel().getSelectedIndex());
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setScene(new Scene(root, 300, 275));
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void altaNuevaPersona(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("DialogoPersona.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DialogoPersona.fxml"));
+            Parent root = fxmlLoader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.WINDOW_MODAL);
             stage.setScene(new Scene(root, 300, 275));
