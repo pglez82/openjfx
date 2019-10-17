@@ -32,7 +32,7 @@ public class PantallaPrincipal extends Application {
 
         tableViewPersonas.getColumns().addAll(column1,column2);
 
-        Button buttonAlta = new Button("Alta");
+        Button buttonAlta=null; //= new Button("Alta");
         AnchorPane.setBottomAnchor(buttonAlta,10d);
         AnchorPane.setLeftAnchor(buttonAlta,10d);
 
