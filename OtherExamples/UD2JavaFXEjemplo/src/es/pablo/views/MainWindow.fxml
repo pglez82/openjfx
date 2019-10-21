@@ -5,10 +5,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.pablo.views.MainWindowController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -23,7 +24,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView fx:id="tableViewPersonas" layoutX="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <TableView fx:id="tableViewPersonas" layoutX="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
               <columns>
                 <TableColumn text="Nombre">
                   <cellValueFactory><PropertyValueFactory property="nombre" />
@@ -35,6 +36,7 @@
                 </TableColumn>
               </columns>
             </TableView>
+            <TextField fx:id="filterApellidosTf" layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
     </AnchorPane>
   </children>

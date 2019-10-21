@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class DialogoPersonaController {
 
     private Persona personaModificar;
-    private int indiceModificar;
+
 
     @FXML
     private Button altaButton;
@@ -30,7 +30,7 @@ public class DialogoPersonaController {
         {
             personaModificar.setNombre(nombreTf.getText());
             personaModificar.setApellidos(apellidosTf.getText());
-            Logica.getInstance().modificarPersona(personaModificar,indiceModificar);
+            Logica.getInstance().modificarPersona(personaModificar);
         }
         else {
             Persona persona = new Persona(nombreTf.getText(), apellidosTf.getText());
@@ -41,10 +41,9 @@ public class DialogoPersonaController {
         stage.close();
     }
 
-    public void setPersonaModificar(Persona personaModificar, int indice)
+    public void setPersonaModificar(Persona personaModificar)
     {
         this.personaModificar = personaModificar;
-        this.indiceModificar = indice;
         nombreTf.setText(personaModificar.getNombre());
         apellidosTf.setText(personaModificar.getApellidos());
     }

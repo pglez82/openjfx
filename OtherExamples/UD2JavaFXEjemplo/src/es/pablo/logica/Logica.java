@@ -39,11 +39,12 @@ public class Logica {
         return listaPersonas;
     }
 
-    public void borrarPersona(int indiceBorrar) {
-        listaPersonas.remove(indiceBorrar);
+    public void borrarPersona(Persona persona) {
+        listaPersonas.remove(persona);
     }
 
-    public void modificarPersona(Persona personaM, int posicion) {
+    public void modificarPersona(Persona personaM) {
+        int posicion = listaPersonas.indexOf(personaM);
         listaPersonas.set(posicion,personaM);
     }
 }
