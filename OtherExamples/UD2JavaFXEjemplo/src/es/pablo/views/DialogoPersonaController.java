@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class DialogoPersonaController {
+public class DialogoPersonaController extends BaseController {
 
     private Persona personaModificar;
 
@@ -26,6 +26,8 @@ public class DialogoPersonaController {
 
     @FXML
     void altaModificarPersona(ActionEvent event) {
+        //Diferenciamos el caso de si queremos modificar o alta
+        //En este caso es una modificación porque tenemos algo en personaModificar
         if (personaModificar!=null)
         {
             personaModificar.setNombre(nombreTf.getText());
@@ -37,7 +39,7 @@ public class DialogoPersonaController {
             Logica.getInstance().addPersona(persona);
         }
         //Como obtener un Stage desde un evento
-        Stage stage = ((Stage)((Node)event.getSource()).getScene().getWindow());
+        Stage stage = getStage();
         stage.close();
     }
 

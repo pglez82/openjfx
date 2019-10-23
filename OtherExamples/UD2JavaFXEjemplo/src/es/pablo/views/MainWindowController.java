@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainWindowController implements Initializable {
+public class MainWindowController extends BaseController implements Initializable {
     private FilterApellidos filterApellidos;
 
     @FXML
@@ -35,39 +35,18 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void modificarPersona(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DialogoPersona.fxml"));
-            Parent root = fxmlLoader.load();
-            DialogoPersonaController controller = fxmlLoader.getController();
-            Persona persona = tableViewPersonas.getSelectionModel().getSelectedItem();
-            controller.setPersonaModificar(persona);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root, 300, 275));
-            stage.showAndWait();
-            filtrar();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        DialogoPersonaController controller = (DialogoPersonaController)cargarDialogo("DialogoPersona.fxml",300,300);
+        Persona persona = tableViewPersonas.getSelectionModel().getSelectedItem();
+        controller.setPersonaModificar(persona);
+        controller.abrirDialogo(true);
+        filtrar();
     }
 
     @FXML
     void altaNuevaPersona(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DialogoPersona.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root, 300, 275));
-            stage.showAndWait();
-            filtrar();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        BaseController controller = cargarDialogo("DialogoPersona.fxml",300,300);
+        controller.abrirDialogo(true);
+        filtrar();
     }
 
     @Override
