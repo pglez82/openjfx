@@ -35,10 +35,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
 import org.pablo.javafx.examples.containers.*;
-import org.pablo.javafx.examples.windows.ConfirmationAlertDialogExample;
-import org.pablo.javafx.examples.windows.ErrorAlertDialogExample;
-import org.pablo.javafx.examples.windows.InfoAlertDialogExample;
-import org.pablo.javafx.examples.windows.NewDialogExample;
+import org.pablo.javafx.examples.windows.*;
 
 /**
  * JavaFX App
@@ -59,7 +56,7 @@ public class RunExamples extends Application {
 
     private List<ExampleBase> getWindowExamples()
     {
-        return Arrays.asList(new InfoAlertDialogExample(),new ErrorAlertDialogExample(),new ConfirmationAlertDialogExample(),new NewDialogExample());
+        return Arrays.asList(new InfoAlertDialogExample(),new ErrorAlertDialogExample(),new ConfirmationAlertDialogExample(),new NewDialogExample(),new FileChooserExample());
     }
     
     @Override
