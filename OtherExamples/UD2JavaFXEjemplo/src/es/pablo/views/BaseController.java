@@ -12,33 +12,47 @@ public class BaseController
 {
     private Stage stage;
 
+    /**
+     * Obtiene el stage asociado a este controller
+     * @return stage asociado al controller
+     */
     protected Stage getStage()
     {
         return stage;
     }
 
-    private void cargarStage(Parent root, int anchura,int altura)
+    /**
+     * Recibe un stage y se lo asigna al controller. Solamente debería de ser útil para la primera pantalla de la aplicación.
+     * @param stage
+     */
+    public void setStage(Stage stage)
+    {
+        if (this.stage!=null)
+            throw new IllegalStateException("Ya tenemos un Stage en este controller");
+
+        this.stage = stage;
+    }
+
+    private void cargarStage(Parent root)
     {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(new Scene(root, anchura,altura));
+        stage.setScene(new Scene(root));
     }
 
     /**
      * Método útil para cargar un nuevo diálogo.
      * @param fxml fxml que quiero cargar
-     * @param anchura anchura del diáloggo
-     * @param altura altura del diálogo
      * @return Controller de la pantalla que estamos abriendo. Hay que llamar al método abrirDialogo para mostrarlo finalmente.
      */
-    protected BaseController cargarDialogo(String fxml,int anchura, int altura)
+    protected BaseController cargarDialogo(String fxml)
     {
         try {
             //Cargar el fxml
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = fxmlLoader.load();
             BaseController controller = fxmlLoader.getController();
-            controller.cargarStage(root,anchura,altura);
+            controller.cargarStage(root);
             return controller;
 
         }catch (IOException e)
@@ -48,7 +62,11 @@ public class BaseController
         }
     }
 
-    public void abrirDialogo(boolean showAndWait)
+    /**
+     * Abre un diálogo cargado. Dará una excepción si no hemos llamado a {@link #cargarDialogo} primero}
+     * @param showAndWait si queremos utilizar showandwait en la llamada a show() o no
+     */
+    protected void mostrarDialogo(boolean showAndWait)
     {
         if (stage==null)
             throw new IllegalStateException("Tienes que llamar a cargarDialogo primero");

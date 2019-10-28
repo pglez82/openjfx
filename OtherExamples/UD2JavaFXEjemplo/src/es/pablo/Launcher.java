@@ -1,5 +1,6 @@
 package es.pablo;
 
+import es.pablo.views.BaseController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,9 +10,12 @@ import javafx.stage.Stage;
 public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/MainWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("views/MainWindow.fxml"));
+        Parent root = fxmlLoader.load();
+        BaseController baseController = fxmlLoader.getController();
         stage.setTitle("Pantalla principal");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root));
+        baseController.setStage(stage);
         stage.show();
     }
 

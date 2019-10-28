@@ -7,17 +7,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,17 +29,17 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @FXML
     void modificarPersona(ActionEvent event) {
-        DialogoPersonaController controller = (DialogoPersonaController)cargarDialogo("DialogoPersona.fxml",300,300);
+        DialogoPersonaController controller = (DialogoPersonaController)cargarDialogo("DialogoPersona.fxml");
         Persona persona = tableViewPersonas.getSelectionModel().getSelectedItem();
         controller.setPersonaModificar(persona);
-        controller.abrirDialogo(true);
+        controller.mostrarDialogo(true);
         filtrar();
     }
 
     @FXML
     void altaNuevaPersona(ActionEvent event) {
-        BaseController controller = cargarDialogo("DialogoPersona.fxml",300,300);
-        controller.abrirDialogo(true);
+        BaseController controller = cargarDialogo("DialogoPersona.fxml");
+        controller.mostrarDialogo(true);
         filtrar();
     }
 
