@@ -37,6 +37,7 @@ import org.pablo.javafx.examples.basiccomponents.*;
 import org.pablo.javafx.examples.containers.*;
 import org.pablo.javafx.examples.fxml.FXMLExample;
 import org.pablo.javafx.examples.styles.ChangeThemeExample;
+import org.pablo.javafx.examples.styles.CustomStyleExample;
 import org.pablo.javafx.examples.styles.JMetroThemeExample;
 import org.pablo.javafx.examples.validation.ControlsFXValidationExample;
 import org.pablo.javafx.examples.windows.*;
@@ -74,7 +75,7 @@ public class RunExamples extends Application {
 
     private List<ExampleBase> getStyleExamples()
     {
-        return Arrays.asList(new ChangeThemeExample(),new JMetroThemeExample());
+        return Arrays.asList(new ChangeThemeExample(),new JMetroThemeExample(),new CustomStyleExample());
     }
     
     @Override
