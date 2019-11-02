@@ -35,6 +35,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
 import org.pablo.javafx.examples.containers.*;
+import org.pablo.javafx.examples.fxml.FXMLExample;
 import org.pablo.javafx.examples.styles.ChangeThemeExample;
 import org.pablo.javafx.examples.styles.JMetroThemeExample;
 import org.pablo.javafx.examples.windows.*;
@@ -59,6 +60,10 @@ public class RunExamples extends Application {
     private List<ExampleBase> getWindowExamples()
     {
         return Arrays.asList(new InfoAlertDialogExample(),new ErrorAlertDialogExample(),new ConfirmationAlertDialogExample(),new NewDialogExample(),new FileChooserExample());
+    }
+
+    private Iterable<? extends ExampleBase> getFXMLExamples() {
+        return Arrays.asList(new FXMLExample());
     }
 
     private List<ExampleBase> getStyleExamples()
@@ -90,6 +95,12 @@ public class RunExamples extends Application {
         for (ExampleBase example : getWindowExamples())
             treeItemWindows.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemWindows);
+
+        TreeItem treeItemFXML = new TreeItem("FXML");
+        treeItemFXML.setExpanded(true);
+        for (ExampleBase example : getFXMLExamples())
+            treeItemFXML.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemFXML);
 
         TreeItem treeItemStyles = new TreeItem("Estilos");
         treeItemStyles.setExpanded(true);
@@ -133,7 +144,9 @@ public class RunExamples extends Application {
         stage.setTitle("JavaFX examples");
         stage.show();
     }
-    
+
+
+
     private void loadSelectedExample()
     {
         ExampleBase exampleBase = (ExampleBase)((TreeItem)treeView.getSelectionModel().getSelectedItem()).getValue();
