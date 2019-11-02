@@ -54,6 +54,7 @@ public class JMetroThemeExample extends ExampleBase
             public void handle(ActionEvent actionEvent) {
                 if (comboBox.getSelectionModel().getSelectedItem()!=null)
                 {
+                    //ESTA ES LA LINEA REALMENTE IMPORTANTE!!! El resto es solo para que el interfaz tenga componentes.
                     new JMetro(scene,comboBox.getSelectionModel().getSelectedItem());
                 }
                 else
