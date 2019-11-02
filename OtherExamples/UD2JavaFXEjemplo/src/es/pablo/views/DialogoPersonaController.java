@@ -8,7 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationResult;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
@@ -59,7 +62,17 @@ public class DialogoPersonaController extends BaseController implements Initiali
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(nombreTf, Validator.createEmptyValidator("El nombre no puede ser vacío"));
-        validationSupport.registerValidator(apellidosTf, Validator.createEmptyValidator("Los apellidos no pueden ser vacíos"));
+        //validationSupport.registerValidator(apellidosTf, Validator.createRegexValidator("Solo números","[0-9]+", Severity.ERROR));
+
+        Validator<String> validator = new Validator<String>()
+        {
+            @Override
+            public ValidationResult apply(Control control, String value )
+            {
+                return ValidationResult.fromMessageIf( control, "not a number", Severity.ERROR, "prueba".equals(value) );
+            }
+        };
+        validationSupport.registerValidator(apellidosTf,validator);
         //Dos opciones aquí. La tradicional y una con bindings
         //Option 1
         /*validationSupport.invalidProperty().addListener(new ChangeListener<Boolean>() {

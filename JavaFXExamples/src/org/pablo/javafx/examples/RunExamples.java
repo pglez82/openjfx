@@ -38,6 +38,7 @@ import org.pablo.javafx.examples.containers.*;
 import org.pablo.javafx.examples.fxml.FXMLExample;
 import org.pablo.javafx.examples.styles.ChangeThemeExample;
 import org.pablo.javafx.examples.styles.JMetroThemeExample;
+import org.pablo.javafx.examples.validation.ControlsFXValidationExample;
 import org.pablo.javafx.examples.windows.*;
 
 /**
@@ -64,6 +65,11 @@ public class RunExamples extends Application {
 
     private Iterable<? extends ExampleBase> getFXMLExamples() {
         return Arrays.asList(new FXMLExample());
+    }
+
+    private List<ExampleBase> getValidationExamples()
+    {
+        return Arrays.asList(new ControlsFXValidationExample());
     }
 
     private List<ExampleBase> getStyleExamples()
@@ -101,6 +107,12 @@ public class RunExamples extends Application {
         for (ExampleBase example : getFXMLExamples())
             treeItemFXML.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemFXML);
+
+        TreeItem treeItemValidation = new TreeItem("Validación");
+        treeItemValidation.setExpanded(true);
+        for (ExampleBase example : getValidationExamples())
+            treeItemValidation.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemValidation);
 
         TreeItem treeItemStyles = new TreeItem("Estilos");
         treeItemStyles.setExpanded(true);
