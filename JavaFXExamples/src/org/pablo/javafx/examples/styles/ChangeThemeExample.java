@@ -19,8 +19,6 @@ public class ChangeThemeExample extends ExampleBase {
         Stage stage = new Stage();
         stage.setTitle("Cambio tema");
 
-
-
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.getItems().addAll(Application.STYLESHEET_CASPIAN,Application.STYLESHEET_MODENA);
 
