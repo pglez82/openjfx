@@ -35,6 +35,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
 import org.pablo.javafx.examples.containers.*;
+import org.pablo.javafx.examples.styles.ChangeThemeExample;
 import org.pablo.javafx.examples.windows.*;
 
 /**
@@ -57,6 +58,11 @@ public class RunExamples extends Application {
     private List<ExampleBase> getWindowExamples()
     {
         return Arrays.asList(new InfoAlertDialogExample(),new ErrorAlertDialogExample(),new ConfirmationAlertDialogExample(),new NewDialogExample(),new FileChooserExample());
+    }
+
+    private List<ExampleBase> getStyleExamples()
+    {
+        return Arrays.asList(new ChangeThemeExample());
     }
     
     @Override
@@ -83,6 +89,13 @@ public class RunExamples extends Application {
         for (ExampleBase example : getWindowExamples())
             treeItemWindows.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemWindows);
+
+        TreeItem treeItemStyles = new TreeItem("Estilos");
+        treeItemStyles.setExpanded(true);
+        for (ExampleBase example : getStyleExamples())
+            treeItemStyles.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemStyles);
+
 
         //Show the button an its action
        /* Button button = new Button("Cargar");
