@@ -1,13 +1,9 @@
 package org.pablo.javafx.examples.validation;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.controlsfx.validation.Severity;
@@ -16,7 +12,6 @@ import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 import org.pablo.javafx.examples.ExampleBase;
 
-import java.text.ParseException;
 
 public class ControlsFXValidationExample extends ExampleBase {
     @Override
