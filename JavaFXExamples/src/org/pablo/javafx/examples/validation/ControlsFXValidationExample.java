@@ -29,7 +29,11 @@ public class ControlsFXValidationExample extends ExampleBase {
 
         ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(textField1, Validator.createEmptyValidator("Este campo no puede estar vacío"));
-        validationSupport.registerValidator(textField2, Validator.createRegexValidator("Este campo no puede estar vacío","[0-9]+", Severity.ERROR));
+
+        validationSupport.registerValidator(textField2,
+                Validator.createRegexValidator("Este campo no puede estar vacío",
+                        "[0-9]+", Severity.ERROR));
+
         validationSupport.registerValidator(textField3, new Validator<String>()
         {
             @Override
