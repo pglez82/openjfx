@@ -15,11 +15,11 @@ public class Main extends Application
     @Override
     public void start(Stage stage) {
         VBox vBox = new VBox();
-        Button button = new Button("Pulsado!");
+        Button button = new Button("Pulsame!");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                button.setText("Pulsame!");
+                button.setText("Pulsado!");
             }
         });
         vBox.getChildren().add(button);
