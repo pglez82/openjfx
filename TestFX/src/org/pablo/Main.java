@@ -16,6 +16,7 @@ public class Main extends Application
     public void start(Stage stage) {
         VBox vBox = new VBox();
         Button button = new Button("Pulsame!");
+        button.setId("button"); //Con fxml usaríamos fx:id
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
