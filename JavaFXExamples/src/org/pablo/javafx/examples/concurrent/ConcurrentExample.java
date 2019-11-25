@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,6 +25,8 @@ public class ConcurrentExample extends ExampleBase {
         TextField textField = new TextField();
         textField.setPromptText("Tu nombre");
         Label label = new Label("");
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        progressIndicator.setVisible(false);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -35,12 +38,19 @@ public class ConcurrentExample extends ExampleBase {
                         //Recuperamos el valor de retorno
                         String saludo = testService.getValue();
                         label.setText(saludo);
+                        progressIndicator.setVisible(false);
+                    }
+                });
+                testService.setOnRunning(new EventHandler<WorkerStateEvent>() {
+                    @Override
+                    public void handle(WorkerStateEvent workerStateEvent) {
+                        progressIndicator.setVisible(true);
                     }
                 });
             }
         });
         
-        Scene scene = new Scene(new VBox(button,label),200,100);
+        Scene scene = new Scene(new VBox(textField,button,label,progressIndicator),150,100);
         stage.setScene(scene);
         stage.show();
     }

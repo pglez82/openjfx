@@ -34,6 +34,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.pablo.javafx.examples.basiccomponents.*;
+import org.pablo.javafx.examples.concurrent.ConcurrentExample;
 import org.pablo.javafx.examples.containers.*;
 import org.pablo.javafx.examples.fxml.FXMLExample;
 import org.pablo.javafx.examples.styles.ChangeThemeExample;
@@ -76,6 +77,11 @@ public class RunExamples extends Application {
     private List<ExampleBase> getStyleExamples()
     {
         return Arrays.asList(new ChangeThemeExample(),new JMetroThemeExample(),new CustomStyleExample());
+    }
+
+    private List<ExampleBase> getConcurrentExamples()
+    {
+        return Arrays.asList(new ConcurrentExample());
     }
     
     @Override
@@ -120,6 +126,12 @@ public class RunExamples extends Application {
         for (ExampleBase example : getStyleExamples())
             treeItemStyles.getChildren().add(new TreeItem(example));
         treeItem.getChildren().add(treeItemStyles);
+
+        TreeItem treeItemConcurrent = new TreeItem("Concurrente");
+        treeItemConcurrent.setExpanded(true);
+        for (ExampleBase example : getConcurrentExamples())
+            treeItemConcurrent.getChildren().add(new TreeItem(example));
+        treeItem.getChildren().add(treeItemConcurrent);
 
 
         //Show the button an its action
