@@ -5,12 +5,9 @@ import es.pablo.logica.Logica;
 import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.control.TableViewMatchers;
-import org.testfx.service.query.PointQuery;
 
 import static org.testfx.api.FxAssert.verifyThat;
 
@@ -47,6 +44,10 @@ public class MainWindowControllerTest extends ApplicationTest
         verifyThat("#tableViewPersonas", TableViewMatchers.hasNumRows(0));
     }
 
+    /**
+     * Este método prueba el alta de una persona. Añadimos la persona y luego comprobamos que
+     * en la tabla exista una única fila, con los datos que debería de tener en cada columna.
+     */
     @Test
     public void testAniadirPersona()
     {
@@ -59,9 +60,12 @@ public class MainWindowControllerTest extends ApplicationTest
         clickOn("#altaButton");
         verifyThat("#tableViewPersonas", TableViewMatchers.hasNumRows(1));
         verifyThat("#tableViewPersonas",TableViewMatchers.containsRow(new String[]{"Pablo","González"}));
-
     }
 
+    /**
+     * Testeamos el filtro buscando algo que no debería de estar en la tabla. Por tanto, después de
+     * aplicar el filtro deberíamos de tener cero filas en la tabla.
+     */
     @Test
     public void testFiltro1()
     {
@@ -73,10 +77,14 @@ public class MainWindowControllerTest extends ApplicationTest
         write("González");
         clickOn("#altaButton");
         clickOn("#filterApellidosTf");
-        write("Martínez");
+        write("Martínez"); //Solo hay una persona en la tabla y no se apellida Martínez
         verifyThat("#tableViewPersonas", TableViewMatchers.hasNumRows(0));
     }
 
+    /**
+     * Esta vez el test si que tiene que encontrar la fila que buscamos. Lo que tenemos que comprobar
+     * por tanto es que en la tabla exista una fila después de aplicar el filtro.
+     */
     @Test
     public void testFiltro2()
     {
