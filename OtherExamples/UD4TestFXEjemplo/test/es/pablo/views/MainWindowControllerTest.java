@@ -59,7 +59,7 @@ public class MainWindowControllerTest extends ApplicationTest
         write("González");
         clickOn("#altaButton");
         verifyThat("#tableViewPersonas", TableViewMatchers.hasNumRows(1));
-        verifyThat("#tableViewPersonas",TableViewMatchers.containsRow(new String[]{"Pablo","González"}));
+        verifyThat("#tableViewPersonas",TableViewMatchers.containsRowAtIndex(0,new String[]{"Pablo","González"}));
     }
 
     /**

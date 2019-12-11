@@ -1,4 +1,4 @@
-module UD2JavaFXEjemplo
+module UD4JavaFXEjemplo
 {
     requires javafx.graphics;
     requires javafx.controls;

@@ -1,5 +1,6 @@
 package org.pablo.javafx.examples.styles;
 
+import com.sun.javafx.css.StyleManager;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
