@@ -1,0 +1,1 @@
+Este es un ejemplo interactivo. Si ejecutamos la aplicación veremos que podemos correr varios ejemplos de JavaFX desde una pantalla principal. Este proyecto ha sido diseñado para mostrar la funcionalidad básica de JavaFX.
