@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Temporizador" />
     <orderEntry type="library" name="JavaFX12" level="application" />
-    <orderEntry type="module" module-name="TemporizadorExample" />
   </component>
 </module>

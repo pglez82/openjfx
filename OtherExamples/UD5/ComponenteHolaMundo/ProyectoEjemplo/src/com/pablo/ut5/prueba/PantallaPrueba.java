@@ -24,7 +24,7 @@ public class PantallaPrueba extends Application
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                chm.setNombre(textField.getText());
+                chm.setNombrePersona2(textField.getText());
                 chm.saluda();
             }
         });

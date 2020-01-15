@@ -1,9 +1,0 @@
-.running
-{
-    -fx-text-fill: red;
-}
-
-.stopped
-{
-     -fx-text-fill: black;
-}

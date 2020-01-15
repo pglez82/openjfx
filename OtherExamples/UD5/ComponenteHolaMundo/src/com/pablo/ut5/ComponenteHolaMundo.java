@@ -1,11 +1,12 @@
 package com.pablo.ut5;
 
+import javafx.beans.property.StringProperty;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 
 public class ComponenteHolaMundo extends Label
 {
-    private String nombre;
+    private StringProperty nombrePersona2;
 
 
     public ComponenteHolaMundo() {
@@ -19,12 +20,16 @@ public class ComponenteHolaMundo extends Label
         super(s, node);
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombrePersona2() {
+        return nombrePersona2.get();
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public StringProperty nombrePersona2Property() {
+        return nombrePersona2;
+    }
+
+    public void setNombrePersona2(String nombrePersona2) {
+        this.nombrePersona2.set(nombrePersona2);
     }
 
     /**
@@ -32,9 +37,9 @@ public class ComponenteHolaMundo extends Label
      */
     public void saluda()
     {
-        if (nombre==null || "".equals(nombre))
+        if (getNombrePersona2() ==null || "".equals(getNombrePersona2()))
             throw new RuntimeException("El nombre no puede estar vacio");
 
-        setText("Hola mundo "+this.nombre);
+        setText("Hola mundo "+this.nombrePersona2);
     }
 }
