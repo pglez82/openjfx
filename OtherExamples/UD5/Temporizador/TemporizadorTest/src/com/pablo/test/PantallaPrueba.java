@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 public class PantallaPrueba extends Application {
     @Override
@@ -15,13 +16,15 @@ public class PantallaPrueba extends Application {
         Temporizador temporizador = new Temporizador();
         temporizador.setFont(new Font(48));
         temporizador.setSegundos(5);
+        temporizador.setColorEncendido(Color.YELLOW);
+        temporizador.setColorFin(Color.BLUE);
 
-        temporizador.addOnEndCountDown(new OnEndCountDown() {
+        /*temporizador.addOnEndCountDown(new OnEndCountDown() {
             @Override
             public void ejecuta() {
-                System.out.println("FIN CUENTA ATRÁS");
+
             }
-        });
+        });*/
 
         vBox.getChildren().add(temporizador);
         Scene scene = new Scene(vBox);
