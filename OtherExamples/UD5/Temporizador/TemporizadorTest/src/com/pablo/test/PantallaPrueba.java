@@ -9,6 +9,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
+import java.util.Date;
+
 public class PantallaPrueba extends Application {
     @Override
     public void start(Stage stage) throws Exception {
@@ -19,12 +21,13 @@ public class PantallaPrueba extends Application {
         temporizador.setColorEncendido(Color.YELLOW);
         temporizador.setColorFin(Color.BLUE);
 
-        /*temporizador.addOnEndCountDown(new OnEndCountDown() {
+        //Registramos el evento
+        temporizador.addOnEndCountDown(new OnEndCountDown() {
             @Override
-            public void ejecuta() {
-
+            public void ejecuta(Date date) {
+                System.out.println("El temporizador llego a cero. Hora del evento:"+date);
             }
-        });*/
+        });
 
         vBox.getChildren().add(temporizador);
         Scene scene = new Scene(vBox);

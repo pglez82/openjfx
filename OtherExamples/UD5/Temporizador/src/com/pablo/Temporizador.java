@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -99,7 +100,7 @@ public class Temporizador extends Label
                             if (segundos.get()==0) {
                                 setStyle("-fx-text-fill:#"+colorToString(colorFin.get()));
                                 if (onEndCountDown!=null)
-                                    onEndCountDown.ejecuta();
+                                    onEndCountDown.ejecuta(new Date());
                             }
                         }
                     });
