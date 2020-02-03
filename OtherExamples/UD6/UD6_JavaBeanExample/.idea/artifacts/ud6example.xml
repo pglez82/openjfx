@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ud6example">
+    <output-path>$PROJECT_DIR$/out/artifacts/ud6example</output-path>
+    <root id="archive" name="ud6example.jar">
+      <element id="module-output" name="DataSource" />
+    </root>
+  </artifact>
+</component>
