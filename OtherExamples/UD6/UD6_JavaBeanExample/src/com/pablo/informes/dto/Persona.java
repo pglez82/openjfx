@@ -1,4 +1,4 @@
-package com.pablo.jasper.dto;
+package com.pablo.informes.dto;
 
 public class Persona
 {

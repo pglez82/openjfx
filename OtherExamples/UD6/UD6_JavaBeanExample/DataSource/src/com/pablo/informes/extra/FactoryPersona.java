@@ -1,6 +1,6 @@
-package com.pablo.jasper.extra;
+package com.pablo.informes.extra;
 
-import com.pablo.jasper.dto.Persona;
+import com.pablo.informes.dto.Persona;
 
 import java.util.ArrayList;
 import java.util.List;

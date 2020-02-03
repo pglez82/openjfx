@@ -1,5 +1,6 @@
-package com.pablo.jasper;
+package com.pablo.informes;
 
+import com.pablo.informes.dto.Persona;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,7 +9,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -17,8 +17,6 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,12 +34,12 @@ public class PantallaPrincipal extends Application {
                 JRBeanCollectionDataSource jrds = new JRBeanCollectionDataSource(listPersonas);
                 try {
                     JasperPrint jasperPrint = JasperFillManager.fillReport(
-                            getClass().getResourceAsStream("/com/pablo/jasper/jasper/report.jasper"),
+                            getClass().getResourceAsStream("/com/pablo/informes/jasper/report.jasper"),
                             new HashMap<String,Object>(),jrds);
-                    JasperExportManager.exportReportToPdfFile(jasperPrint,"report.pdf");
+                    JasperExportManager.exportReportToPdfFile(jasperPrint,"informes/report.pdf");
                     new Thread(() -> {
                         try {
-                            Desktop.getDesktop().open(new File("report.pdf"));
+                            Desktop.getDesktop().open(new File("informes/report.pdf"));
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }

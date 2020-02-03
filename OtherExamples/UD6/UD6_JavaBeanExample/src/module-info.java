@@ -5,5 +5,6 @@ module UD6.JavaBeanExample
     requires jasperreports;
     requires java.sql;
     requires java.desktop;
-    exports com.pablo.jasper;
+    exports com.pablo.informes;
+    exports com.pablo.informes.dto;
 }
