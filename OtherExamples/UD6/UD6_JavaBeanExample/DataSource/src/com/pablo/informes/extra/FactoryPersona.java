@@ -1,7 +1,5 @@
 package com.pablo.informes.extra;
 
-import com.pablo.informes.dto.Persona;
-
 import java.util.ArrayList;
 import java.util.List;
 

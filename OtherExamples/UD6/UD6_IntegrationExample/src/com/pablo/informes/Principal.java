@@ -38,15 +38,17 @@ public class Principal extends Application
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(conexion);
 
         //Paso de parámetros al informe
         Map<String,Object> parametros = new HashMap<>();
         parametros.put("CIUDAD",ciudad);
 
         try {
-            JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream("/com/pablo/informes/jasper/primerinforme.jasper"), parametros, conexion);
+            JasperPrint print = JasperFillManager.fillReport(
+                    getClass().getResourceAsStream("/com/pablo/informes/jasper/primerinforme.jasper"),
+                    parametros, conexion);
             JasperExportManager.exportReportToPdfFile(print, "informes/primerinforme.pdf");
-
         } catch (JRException e) {
             e.printStackTrace();
         }
