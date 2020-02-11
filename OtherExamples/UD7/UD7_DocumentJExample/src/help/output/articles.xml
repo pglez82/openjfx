@@ -1,0 +1,14 @@
+<database fullTextSearch="resources/fulltextSearch.json">
+  <article name="first article" url="articles/article_firstarticle.html" header="The content of the first article" >
+  </article>
+  <article name="faq" url="articles/article_faq.html" header="Frequently Asked Questions" >
+  </article>
+  <article name="second article" url="articles/article_secondarticle.html" header="The content of the second article" >
+  </article>
+  <article name="mediawiki article" url="articles/article_test.html" header="The content of the Mediawiki article" >
+  </article>
+  <articleID id="faq" />
+  <articleID id="first article" />
+  <articleID id="mediawiki article" />
+  <articleID id="second article" />
+</database>

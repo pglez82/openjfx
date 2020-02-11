@@ -1,0 +1,9 @@
+<article desc="first article">
+         The content of the first article. Link to the <ref id="second article" />
+         
+         The image:
+         <img id="ball" />
+         
+         <cat id="articles" />
+         <cat id="othercategory" />
+      </article>

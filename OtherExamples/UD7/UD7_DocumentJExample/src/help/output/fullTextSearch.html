@@ -1,0 +1,37 @@
+<HEAD>
+<link rel="stylesheet" type="text/css" href="resources/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="resources/jquery/jquery-ui.css">
+<script type="text/javascript" src="resources/jquery/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="resources/fullTextDatabase.js"></script>
+<script type="text/javascript" src="resources/initSearch.js"></script>
+<script type="text/javascript" src="resources/elasticLunr/elasticLunr.js"></script>
+<script type="text/javascript" src="resources/fulltextSearch.js"></script>
+</HEAD>
+<div class="left">
+ <a href="index.html">Home</a> 
+<br/>
+ <a href="categories.html">Categories</a> 
+<br/>
+<a href="articles/article_faq.html">FAQ</a>
+<br/>
+</div>
+<div class="middle">
+<HTML>
+<HEADER>
+<iframe class="header" src="header.html" frameBorder="0" scrolling="no"></iframe> 
+</HEADER>
+<BODY onload="initSearch()">
+<H1>Search Results</H1>
+
+<hr/>
+<div id="title">
+</div>
+<div id="results">
+</div>
+
+<hr/>
+</div>
+<div class="bottom">
+<P><i>docJGenerator Tutorial</i></P></div>
+</BODY>
+</HTML>

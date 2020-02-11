@@ -1,0 +1,8 @@
+ <leftMenu onIndex="true">
+      <menuItem desc="What Links Here" >
+         <linksFromRef />
+      </menuItem>
+      <menuItem desc="FAQ" >
+         <itemInternalRef id="FAQ" />
+      </menuItem>
+   </leftMenu>

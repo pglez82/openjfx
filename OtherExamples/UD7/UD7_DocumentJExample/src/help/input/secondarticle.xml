@@ -1,0 +1,4 @@
+    <article desc="second article">
+      The content of the second article. Link to the <ref id="first article" />
+         <cat id="articles"/>
+      </article>
