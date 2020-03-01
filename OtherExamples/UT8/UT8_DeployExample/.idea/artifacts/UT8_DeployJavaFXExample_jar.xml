@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="UT8_DeployJavaFXExample:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/UT8_DeployJavaFXExample_jar</output-path>
+    <root id="root">
+      <element id="archive" name="UT8_DeployJavaFXExample.jar">
+        <element id="module-output" name="UT8_DeployJavaFXExample" />
+      </element>
+      <element id="library" level="application" name="JavaFX12" />
+    </root>
+  </artifact>
+</component>

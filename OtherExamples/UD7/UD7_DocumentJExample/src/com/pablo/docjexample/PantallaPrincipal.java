@@ -20,7 +20,7 @@ public class PantallaPrincipal extends Application
     private void initializeHelp(Stage stage)
     {
         try {
-            URL url = this.getClass().getResource("/help/articles.zip");
+            URL url = this.getClass().getClassLoader().getResource("help/articles.zip");
             JavaHelpFactory factory = new JavaHelpFactory(url);
             factory.create();
             viewer = new JFXHelpContentViewer();

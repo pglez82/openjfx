@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="UD7_DocumentJExample:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/UD7_DocumentJExample_jar</output-path>
+    <root id="root">
+      <element id="archive" name="UD7_DocumentJExample.jar">
+        <element id="module-output" name="UD7_DocumentJExample" />
+      </element>
+      <element id="library" level="application" name="docGeneJFXHelp" />
+      <element id="dir-copy" path="$USER_HOME$/Programas/JavaLibs/javafx-sdk-12.0.2/lib" />
+    </root>
+  </artifact>
+</component>
