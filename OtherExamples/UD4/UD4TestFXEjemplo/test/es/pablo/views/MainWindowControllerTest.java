@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.control.TableViewMatchers;
+import org.testfx.util.WaitForAsyncUtils;
 
 import static org.testfx.api.FxAssert.verifyThat;
 
@@ -54,12 +55,13 @@ public class MainWindowControllerTest extends ApplicationTest
         clickOn("#menuPersonas");
         clickOn("#menuAlta");
         clickOn("#nombreTf");
-        write("Pablo");
+        write("4");
         clickOn("#apellidosTf");
-        write("González");
+        write("4");
         clickOn("#altaButton");
+        WaitForAsyncUtils.waitForFxEvents();
         verifyThat("#tableViewPersonas", TableViewMatchers.hasNumRows(1));
-        verifyThat("#tableViewPersonas",TableViewMatchers.containsRowAtIndex(0,new String[]{"Pablo","González"}));
+        verifyThat("#tableViewPersonas",TableViewMatchers.containsRowAtIndex(0,new String[]{"4","45"}));
     }
 
     /**

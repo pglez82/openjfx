@@ -11,6 +11,7 @@ import org.docgene.help.JavaHelpFactory;
 import org.docgene.help.gui.jfx.JFXHelpContentViewer;
 
 
+import java.io.File;
 import java.net.URL;
 
 
@@ -20,7 +21,7 @@ public class PantallaPrincipal extends Application
     private void initializeHelp(Stage stage)
     {
         try {
-            URL url = this.getClass().getClassLoader().getResource("help/articles.zip");
+            URL url = new File("help/articles.zip").toURI().toURL();
             JavaHelpFactory factory = new JavaHelpFactory(url);
             factory.create();
             viewer = new JFXHelpContentViewer();

@@ -31,11 +31,14 @@ public class PantallaPrincipal extends Application {
                 List<Persona> listPersonas = new ArrayList<>(); //Esta lista en una aplicación real vendría de Logica
                 listPersonas.add(new Persona("Pablo",34));
                 listPersonas.add(new Persona("Juan",18));
+                listPersonas.add(new Persona("Ana",50));
                 JRBeanCollectionDataSource jrds = new JRBeanCollectionDataSource(listPersonas);
                 try {
                     JasperPrint jasperPrint = JasperFillManager.fillReport(
                             getClass().getResourceAsStream("/com/pablo/informes/jasper/report.jasper"),
-                            new HashMap<String,Object>(),jrds);
+                            new HashMap<String,Object>(),
+                            jrds);
+
                     JasperExportManager.exportReportToPdfFile(jasperPrint,"informes/report.pdf");
                     new Thread(() -> {
                         try {
